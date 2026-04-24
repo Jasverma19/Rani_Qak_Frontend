@@ -1,0 +1,151 @@
+.manageUsers {
+  padding: 30px;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-family: "Poppins", sans-serif;
+  color: #e74c3c;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Table Container */
+.tableContainer {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table th {
+  padding: 20px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+
+.table td {
+  padding: 15px 10px;
+  margin: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1f2937;
+  font-size: 15.5px;
+  vertical-align: middle;
+}
+
+/* Column Alignment */
+.table td:nth-child(4) { text-align: center; }
+
+/* ==================== STATUS PILL (Exact Match) ==================== */
+.active {
+  background: #ecfdf5;
+  color: #10b981;
+  padding: 10px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.15);
+}
+
+.active::before {
+  color: #10b981;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Blocked State */
+.blocked {
+  background: #fef2f2;
+  color: #ef4444;
+  padding: 10px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blocked::before {
+  content: "🚫";
+  font-size: 17px;
+}
+
+/* Action Buttons */
+.actions {
+
+  gap: 12px;
+
+}
+
+.blockBtn {
+  padding: 9px 24px;
+  background: transparent;
+  color: #475569;
+  border: 2px solid #cbd5e1;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blockBtn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.deleteBtn {
+  padding: 9px 24px;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+}
+
+/* Row Hover */
+.table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 18px 14px;
+  }
+}

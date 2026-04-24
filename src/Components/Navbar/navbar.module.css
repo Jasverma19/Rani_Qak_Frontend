@@ -1,0 +1,229 @@
+/* navbar.module.css */
+/* Rani Oak Inspired – Soft Peach, Warm Light, Elegant & Fun ✨ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+.navbar {
+  --ink: #1f2937;
+  --muted: #64748b;
+  --accent: #e11d48;
+  --accent-light: #f43f5e;
+  /* --bg: #fffaf5; */
+  /* --border: #fce7f3; */
+
+  font-family: "Times New Roman", Times, serif;
+  height: 120px;
+  padding: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgb(249, 248, 248);
+  border-bottom: 2px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 6px 25px rgba(225, 29, 72, 0.12);
+}
+
+/* Logo */
+.logo {
+  width: 145px;
+  max-width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+/* Nav Links – Clean & Interactive */
+.navMenu {
+  display: flex;
+  list-style: none;
+  gap: 65px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navMenu a {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  padding: 8px 4px;
+  transition: transform 0.3s ease;
+}
+
+.navMenu a:hover,
+.navMenu a.active {
+  color: var(--accent);
+  transform: scale(1.08);
+}
+
+/* Animated underline 
+.navMenu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+} */
+
+.navMenu a:hover::after,
+.navMenu a.active::after {
+  width: 100%;
+}
+
+/* Right Section */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  gap: 25px;
+}
+
+/* Cart Icon */
+.cartIcon {
+  position: relative;
+  font-size: 36px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.cartIcon:hover {
+  color: var(--accent);
+  transform: scale(1.15);
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Profile */
+.profileLink {
+  font-size: 36px;
+  transition: all 1s ease;
+}
+
+.profileLink:hover {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
+/* Divider */
+.divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* Auth Button – Warm & Playful */
+.authBtn {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(90deg, #e11d48, #f43f5e);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.authBtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(225, 29, 72, 0.4);
+}
+
+.authBtn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Menu Icon */
+.menuIcon {
+  display: none;
+  font-size: 1.7rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menuIcon:hover {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+/* Mobile Menu */
+@media (max-width: 750px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 76px;
+    right: 5%;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    width: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px;
+    gap: 18px;
+    box-shadow: 0 15px 40px rgba(225, 29, 72, 0.15);
+    display: none;
+  }
+
+  .navMenu.open {
+    display: flex;
+  }
+
+  .navMenu a {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1050px) {
+  .logo {
+    width: 125px;
+  }
+  .navMenu {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navMenu {
+    gap: 18px;
+  }
+  .logo {
+    width: 110px;
+  }
+}

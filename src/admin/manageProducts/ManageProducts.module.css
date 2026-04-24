@@ -1,0 +1,139 @@
+:root {
+  --accent: #ff6b6b;
+}
+
+.manageProducts {
+  padding: 25px;
+  min-height: 100vh;
+}
+
+.title {
+  color: #e74c3c;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.form {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  align-items: end;
+}
+
+.form input,
+.form select {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.addBtn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--accent), #ff9f9f);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  grid-column: span 2;
+}
+
+.addBtn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.cancelBtn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--accent), #ff9f9f);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancelBtn:hover{
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Table */
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: #ff6b35;
+  color: white;
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.foodImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.editBtn {
+  padding: 8px 16px;
+  background: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.deleteBtn {
+  padding: 8px 16px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .addBtn {
+    grid-column: span 1;
+  }
+}

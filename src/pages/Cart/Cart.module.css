@@ -1,0 +1,166 @@
+.cart {
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.cart h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cartTable thead {
+  background: #f9f9f9;
+}
+
+.cartTable th {
+  text-align: left;
+  padding: 14px;
+  font-size: 20px;
+  color: #666;
+  font-weight: 600;
+}
+
+.cartTable td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #333;
+}
+
+.cartTable tbody tr:hover {
+  background: #fafafa;
+}
+
+.cartImg {
+  width: 65px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cartTable td:nth-child(3),
+.cartTable td:nth-child(5) {
+  font-weight: 600;
+  color: #e11d48;
+}
+
+.removeBtn {
+  color: #e11d48;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.removeBtn:hover {
+  transform: scale(1.2);
+}
+
+.cartBottom {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: max(12vw, 20px);
+}
+
+.cartTotal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartTotalDetails {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartTotal hr {
+  margin: 10px 0px;
+}
+
+.cartTotal button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #e11d48;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart button:hover {
+  transform: scale(1.05);
+}
+
+.cartPromocode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.cartPromocode p {
+  color: #666;
+}
+
+/* wrapper for input + button */
+.cartPromocodeInput {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* input styling */
+.cartPromocodeInput input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background: transparent;
+}
+
+/* button styling */
+.cartPromocodeInput button {
+  padding: 10px 15px;
+  border: none;
+  background: #e11d48;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cart-table th,
+  .cart-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .cart-img {
+    width: 50px;
+    height: 40px;
+  }
+
+  .cart-total {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* ============================================================
+   manageCategories.module.css — SUNNY & PLAYFUL ✨
+   Wider Cards + Compact Buttons + No Gap
+   ============================================================ */
+
+:root {
+  --bg-main:        #fffaf0;
+  --bg-panel:       #ffffff;
+  --accent:         #ff6b6b;
+  --accent-light:   #ff9f9f;
+  --accent-soft:    #fff0f0;
+  --accent-glow:    #ffb3b3;
+  
+  --text-primary:   #2c1e1e;
+  --text-secondary: #555;
+  
+  --radius-sm:      20px;
+  --radius-md:      24px;
+  --radius-lg:      28px;
+  
+  --shadow-sm:      0 8px 20px rgba(255, 107, 107, 0.12);
+  --shadow-md:      0 20px 45px rgba(255, 107, 107, 0.22);
+  --transition:     all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Container & Title ── */
+.container {
+  padding: 20px 0;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  color: #e74c3c;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 36px;
+  text-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+/* ── Add Form ── */
+.formCategory {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  background: var(--bg-panel);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #ffe4d9;
+}
+
+.inputText {
+  flex: 1;
+  min-width: 260px;
+  padding: 14px 18px;
+  border: 2px solid #ffe4d9;
+  border-radius: var(--radius-sm);
+  font-size: 15.5px;
+  background: #fffaf5;
+}
+
+.inputText:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.15);
+}
+
+.inputFile {
+  padding: 12px;
+  background: #fffaf5;
+  border: 2px dashed #ff9f9f;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.inputFile:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.addButton {
+  padding: 14px 34px;
+  background: linear-gradient(135deg, var(--accent), #ff9f9f);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 15.5px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.addButton:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* ── Wider Cards ── */
+.categoryContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.categoryCard {
+  background: var(--bg-panel);
+  border-radius: var(--radius-md);
+  padding: 22px 22px 16px;
+  text-align: center;
+  border: 1px solid #ffe4d9;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryCard:hover {
+  transform: translateY(-16px) scale(1.06);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-glow);
+}
+
+.categoryCard::before {
+  content: '🍭';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 28px;
+  opacity: 0.15;
+  transition: var(--transition);
+}
+
+.categoryCard:hover::before {
+  opacity: 0.45;
+  transform: rotate(25deg) scale(1.25);
+}
+
+.categoryImage {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  transition: var(--transition);
+  border: 3px solid var(--accent-soft);
+}
+
+.categoryCard:hover .categoryImage {
+  transform: scale(1.08);
+}
+
+.categoryTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+/* ── Compact Buttons (No Gap) ── */
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 4px;   /* Very small gap */
+}
+
+.editBtn,
+.deleteBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 13.5px;
+  white-space: nowrap;
+  min-width: 82px;
+}
+
+.editBtn {
+  background: #facc15;
+  color: #2c1e1e;
+}
+
+.editBtn:hover {
+  background: #eab308;
+  transform: scale(1.08);
+}
+
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+  transform: scale(1.08);
+}
+
+/* ── Modal (Unchanged) ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 30, 30, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--bg-panel);
+  padding: 36px 40px;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid #ffe4d9;
+  animation: popModal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popModal {
+  0%   { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modalTitle {
+  font-size: 26px;
+  margin-bottom: 24px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.modal input[type="text"],
+.modal input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 2px solid #ffe4d9;
+  border-radius: var(--radius-sm);
+  background: #fffaf5;
+}
+
+.modal input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.15);
+}
+
+.previewImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin: 16px 0 24px;
+  border: 3px solid var(--accent-soft);
+}
+
+.modalActions {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.modalActions button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+}

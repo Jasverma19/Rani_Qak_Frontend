@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --bg-main: #fffaf0;
+  --bg-panel: #ffffff;
+  --accent: #ff6b6b;
+  --accent-light: #ff9f9f;
+  --accent-soft: #fff0f0;
+  --text-primary: #2c1e1e;
+  --radius-sm: 20px;
+  --radius-lg: 28px;
+  --shadow-sm: 0 10px 30px rgba(255, 107, 107, 0.15);
+  --transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.signupPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fffaf0 0%, #ffe4d9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", system-ui, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-panel);
+  padding: 48px 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  border: 1px solid #ffe4d9;
+  transition: var(--transition);
+}
+
+.container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(255, 107, 107, 0.2);
+}
+
+.logo {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 32px;
+  font-size: 15.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input {
+  padding: 16px 20px;
+  font-size: 15.5px;
+  border: 2px solid #ffe4d9;
+  border-radius: var(--radius-sm);
+  background: #fffaf5;
+  transition: var(--transition);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.15);
+}
+
+.signupBtn {
+  margin-top: 8px;
+  padding: 16px;
+  background: rgb(252, 95, 95);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.signupBtn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+}
+
+.loginText {
+  margin-top: 24px;
+  color: #666;
+  font-size: 14.5px;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #ff9f9f;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 36px 24px;
+    margin: 20px;
+  }
+}

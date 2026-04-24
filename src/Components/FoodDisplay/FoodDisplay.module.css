@@ -1,0 +1,74 @@
+/* FoodDisplay.module.css */
+/* Rani Oak Inspired – Soft Peach, Warm Light, Super Fun & Interactive ✨ */
+
+.foodDisplay {
+  margin-top: 10px;
+  padding: 0 6%;
+  background: #fffaf5;
+}
+
+/* Fun Heading */
+.foodDisplay h2 {
+  text-align: center;
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: #e11d48;
+  margin-bottom: 3rem;
+  position: relative;
+  letter-spacing: -0.025em;
+}
+
+.foodDisplay h2::after {
+  content: "🍽️";
+  position: absolute;
+  font-size: 2.2rem;
+  top: -18px;
+  right: -45px;
+  opacity: 0.25;
+  transform: rotate(12deg);
+}
+
+/* Narrower Food Grid */
+.foodDisplayList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 28px;
+  row-gap: 42px;
+  margin-top: 10px;
+}
+
+/* Food Card */
+.foodItem {
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .foodDisplay {
+    padding: 0 5%;
+  }
+
+  .foodDisplay h2 {
+    font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+  }
+
+  .foodDisplayList {
+    gap: 24px;
+    row-gap: 34px;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .foodDisplayList {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .foodItem img {
+    height: 175px;
+  }
+
+  .foodItem p {
+    height: 44px;
+  }
+}
