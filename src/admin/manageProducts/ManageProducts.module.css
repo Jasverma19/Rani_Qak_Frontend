@@ -65,7 +65,7 @@
   font-weight: 600;
 }
 
-.cancelBtn:hover{
+.cancelBtn:hover {
   transform: translateY(-4px) scale(1.05);
 }
 
@@ -96,6 +96,31 @@
   vertical-align: middle;
 }
 
+/* Better Column Alignment 
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 80px;
+  text-align: center;
+}  Image 
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 35%;
+}  Name 
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  text-align: center;
+  width: 120px;
+}  Price 
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 140px;
+}  Category 
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  text-align: center;
+  width: 160px;
+}  Actions */
+
 .foodImage {
   width: 60px;
   height: 60px;
@@ -105,27 +130,45 @@
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 25px;
+  /* justify-content: center; */
+  flex-wrap: wrap;
 }
 
 .editBtn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   background: #f1c40f;
   color: #2c3e50;
   border: none;
-  border-radius: 6px;
+  margin: 13px 0;
+  border-radius: 9999px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .deleteBtn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   background: #e74c3c;
   color: white;
   border: none;
-  border-radius: 6px;
+  margin: 13px 0;
+  border-radius: 9999px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.editBtn:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+}
+
+.deleteBtn:hover {
+  background: #be123c;
+  transform: translateY(-2px);
 }
 
 /* Responsive */
