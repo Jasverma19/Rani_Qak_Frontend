@@ -21,7 +21,7 @@ a {
 
 /* Global Container */
 .App {
-  background-color: rgb(249, 248, 248);
+  background-color: #fffaf5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
