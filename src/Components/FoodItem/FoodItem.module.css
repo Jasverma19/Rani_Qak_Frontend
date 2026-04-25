@@ -4,14 +4,13 @@
   border-radius: 26px;
   background-color: #ffffff;
   box-shadow: 0 10px 30px rgba(249, 168, 212, 0.18);
-  border: 2px solid #fce7f3;
+  border: 2px;
   overflow: hidden;
   cursor: pointer;
 }
 
 .foodItem:hover {
-  box-shadow: 0 28px 55px rgba(225, 29, 72, 0.25);
-  border-color: #fda4af;
+  box-shadow: 0 20px 35px rgba(225, 29, 72, 0.25);
 }
 
 /* Image Container */
@@ -27,7 +26,7 @@
 }
 
 .foodItem:hover .foodItemImg {
-  transform: scale(1.1);
+  transform: scale(1.13);
 }
 
 /* Info Section */
@@ -52,7 +51,7 @@
 
 /* Rating Stars */
 .foodItemNameRating img {
-  width: 78px;
+  width: 50px;
   height: 16px;
 }
 
