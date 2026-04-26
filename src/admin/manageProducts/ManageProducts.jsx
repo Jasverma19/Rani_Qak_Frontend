@@ -21,6 +21,7 @@ const ManageProducts = () => {
       const res = await axios.get(`${url}/api/food/all`);
       setFoods(res.data.foods || []);
     } catch (err) {
+      console.error(err)
       toast.error("Failed to load foods");
     }
   };
@@ -35,8 +36,12 @@ const ManageProducts = () => {
   };
 
   useEffect(() => {
-    fetchFoods();
-    fetchCategories();
+    const loadData = async () => {
+      await fetchFoods();
+      await fetchCategories();
+    };
+
+    loadData();
   }, []);
 
   const handleSubmit = async (e) => {
@@ -60,7 +65,7 @@ const ManageProducts = () => {
 
       resetForm();
       fetchFoods();
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong");
     }
   };
@@ -89,6 +94,7 @@ const ManageProducts = () => {
       toast.success("Product deleted");
       fetchFoods();
     } catch (err) {
+      console.error(err);
       toast.error("Failed to delete");
     }
   };
