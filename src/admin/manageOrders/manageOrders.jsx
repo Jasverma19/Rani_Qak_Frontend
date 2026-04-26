@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import styles from './manageOrders.module.css';
 import { toast } from 'react-toastify';
@@ -9,34 +9,33 @@ const ManageOrders = () => {
 
   const token = localStorage.getItem("token");
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       setLoading(true);
       const res = await axios.get("http://localhost:8000/api/order/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(res.data.orders || []);
-    } catch (err) {
-      console.error(err);
+    } catch {
       toast.error("Failed to load orders");
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, [fetchOrders]);
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      await axios.put(`http://localhost:8000/api/order/status/${orderId}`, 
+      await axios.put(`http://localhost:8000/api/order/status/${orderId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("Order status updated");
       fetchOrders();
-    } catch (err) {
+    } catch {
       toast.error("Failed to update status");
     }
   };
@@ -57,7 +56,7 @@ const ManageOrders = () => {
   return (
     <div className={styles.manageOrders}>
       <div className={styles.header}>
-          <h1>Manage Orders</h1>
+        <h1>📦 Manage Orders</h1>
       </div>
 
       <div className={styles.ordersGrid}>
@@ -80,7 +79,7 @@ const ManageOrders = () => {
               {/* Progress Stepper */}
               <div className={styles.progress}>
                 {['pending', 'confirmed', 'preparing', 'delivered'].map((step, i) => (
-                  <div key={i} className={`${styles.step} ${order.status === step || 
+                  <div key={i} className={`${styles.step} ${order.status === step ||
                     (order.status === 'delivered' && step !== 'pending') ? styles.active : ''}`}>
                     <div className={styles.stepDot}></div>
                     <span>{step.charAt(0).toUpperCase() + step.slice(1)}</span>
@@ -92,7 +91,7 @@ const ManageOrders = () => {
               <div className={styles.orderItems}>
                 {order.items.slice(0, 3).map((item, i) => (
                   <p key={i}>
-                    • {item.food?.name} × {item.quantity} 
+                    • {item.food?.name} × {item.quantity}
                     <span className={styles.price}> ₹{item.food?.price * item.quantity}</span>
                   </p>
                 ))}

@@ -15,9 +15,6 @@ const ManageCategories = ({ refreshCount }) => {
     image: null
   });
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   const fetchCategories = async () => {
     try {
@@ -27,6 +24,18 @@ const ManageCategories = ({ refreshCount }) => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        await fetchCategories();
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    loadData();
+  }, []);
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
@@ -52,7 +61,7 @@ const ManageCategories = ({ refreshCount }) => {
       setForm({ name: "", image: null });
       fetchCategories();
       refreshCount && refreshCount();
-    } catch (err) {
+    } catch {
       toast.error("Failed to add category ❌");
     }
   };
@@ -81,7 +90,7 @@ const ManageCategories = ({ refreshCount }) => {
       fetchCategories();
       refreshCount && refreshCount();
       closeModal();
-    } catch (err) {
+    } catch {
       toast.error("Update failed ❌");
     }
   };
@@ -92,14 +101,14 @@ const ManageCategories = ({ refreshCount }) => {
       toast.success("Category deleted 🗑️");
       fetchCategories();
       refreshCount && refreshCount();
-    } catch (err) {
+    } catch {
       toast.error("Failed to delete ❌");
     }
   };
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Manage Categories</h2>
+      <h2 className={styles.title}>📁 Manage Categories</h2>
 
       {/* Add Category Form */}
       <form className={styles.formCategory} onSubmit={handleSubmit}>

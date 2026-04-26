@@ -101,7 +101,7 @@ const ManageProducts = () => {
 
   return (
     <div className={styles.manageProducts}>
-      <h1 className={styles.title}>Manage Products 🍔</h1>
+      <h1 className={styles.title}>🍔 Manage Products</h1>
 
       {/* Add / Edit Form */}
       <form onSubmit={handleSubmit} className={styles.form}>
