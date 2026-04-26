@@ -152,45 +152,45 @@ const AdminDashboard = ({ setToken, setUser }) => {
 
             {/* MAIN */}
             <div className={styles.main}>
+                <div className={styles.adminNavbar}>
+                    <div className={styles.adminHeader}>
+                        <h1>Admin Dashboard</h1>
 
-                <div className={styles.adminHeader}>
-                    <h1>Admin Dashboard</h1>
+                        <div className={styles.adminInfo}>
+                            Welcome 👩🏼‍💼
+                            <button onClick={handleLogout}>Logout</button>
+                        </div>
+                    </div>
 
-                    <div className={styles.adminInfo}>
-                        Welcome 👩🏼‍💼
-                        <button onClick={handleLogout}>Logout</button>
+                    {/* CARDS */}
+                    <div className={styles.cards}>
+
+                        <div className={styles.card}>
+                            <h3>Total Users</h3>
+                            <p>{usercount}</p>
+                        </div>
+
+                        <div className={styles.card}>
+                            <h3>Total Orders</h3>
+                            <p>{orderCount}</p>
+                        </div>
+
+                        <div className={styles.card}>
+                            <h3>Categories</h3>
+                            <p>{categoryCount}</p>
+                        </div>
+
+                        <div className={styles.card}>
+                            <h3>Products</h3>
+                            <p>{productCount}</p>
+                        </div>
+
                     </div>
                 </div>
-
-                {/* CARDS */}
-                <div className={styles.cards}>
-
-                    <div className={styles.card}>
-                        <h3>Total Users</h3>
-                        <p>{usercount}</p>
-                    </div>
-
-                    <div className={styles.card}>
-                        <h3>Total Orders</h3>
-                        <p>{orderCount}</p>
-                    </div>
-
-                    <div className={styles.card}>
-                        <h3>Categories</h3>
-                        <p>{categoryCount}</p>
-                    </div>
-
-                    <div className={styles.card}>
-                        <h3>Products</h3>
-                        <p>{productCount}</p>
-                    </div>
-
-                </div>
-              <Outlet />
-
+                <Outlet />
             </div>
 
-        </div>
+        </div >
     );
 };
 

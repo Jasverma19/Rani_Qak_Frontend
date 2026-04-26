@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
 
-/* ============================================================
-   manageCategories.module.css — SUNNY & PLAYFUL ✨
-   Wider Cards + Compact Buttons + No Gap
-   ============================================================ */
-
 :root {
   --bg-main: #fffaf0;
   --bg-panel: #ffffff;
@@ -22,12 +17,7 @@
 
   --shadow-sm: 0 8px 20px rgba(255, 107, 107, 0.12);
   --shadow-md: 0 20px 45px rgba(255, 107, 107, 0.22);
-  --transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* ── Container & Title ── */
-.container {
-  padding: 20px 0;
+  /* --transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); */
 }
 
 .title {
@@ -114,33 +104,20 @@
   text-align: center;
   border: 1px solid #ffe4d9;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
   overflow: hidden;
 }
 
 .categoryCard:hover {
-  transform: translateY(-16px) scale(1.06);
   box-shadow: var(--shadow-md);
   border-color: var(--accent-glow);
 }
 
-.categoryCard::before {
-  content: "🍭";
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 28px;
-  opacity: 0.15;
-  transition: var(--transition);
-}
-
 .categoryCard:hover::before {
   opacity: 0.45;
-  transform: rotate(25deg) scale(1.25);
+  transform: scale(1.25);
 }
 
 .categoryImage {
@@ -149,7 +126,7 @@
   object-fit: cover;
   border-radius: 18px;
   margin-bottom: 18px;
-  transition: var(--transition);
+  transition: transform 1s ease;
   border: 3px solid var(--accent-soft);
 }
 
