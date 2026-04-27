@@ -27,7 +27,7 @@ const AdminDashboard = ({ setToken, setUser }) => {
     const [productCount, setProductCount] = useState(0);
 
     // ---------------- PENDING ORDERS ----------------
-    const [pendingOrders, setPendingOrders] = useState([]);
+    // const [pendingOrders, setPendingOrders] = useState([]);
 
     // ---------------- USERS ----------------
     const fetchUserCount = async () => {
@@ -75,64 +75,75 @@ const AdminDashboard = ({ setToken, setUser }) => {
     };
 
     // ---------------- PENDING ORDERS ONLY ----------------
-    const fetchPendingOrders = async () => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/order/all", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+    // const fetchPendingOrders = async () => {
+    //     try {
+    //         const res = await axios.get("http://localhost:8000/api/order/all", {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //             },
+    //         });
 
-            const pending = (res.data.orders || []).filter(
-                (order) => order.status === "pending"
-            );
+    //         const pending = (res.data.orders || []).filter(
+    //             (order) => order.status === "pending"
+    //         );
 
-            setPendingOrders(pending);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    //         // setPendingOrders(pending);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     // ---------------- LOAD ALL DATA ----------------
     useEffect(() => {
-
-        fetchUserCount();
-        fetchCategoryCount();
-        fetchOrderCount();
-        fetchProductCount();
-        fetchPendingOrders();
-
-        // 🔥 REAL TIME AUTO REFRESH
-        const interval = setInterval(() => {
-            fetchPendingOrders();
+        const loadData = async () => {
+            await fetchCategoryCount();
+            fetchProductCount();
             fetchOrderCount();
-        }, 3000);
+            fetchUserCount();
+        };
 
-        return () => clearInterval(interval);
+        loadData();
+    });
+    // useEffect(() => {
+    //     fetchCategoryCount();
+    //     fetchProductCount();
+    //     fetchOrderCount();
+    //     fetchUserCount();
+    // }, []);
 
-    }, []);
+    // fetchPendingOrders();
+
+    // // 🔥 REAL TIME AUTO REFRESH
+    // const interval = setInterval(() => {
+    //     // fetchPendingOrders();
+    //     fetchOrderCount();
+    // });
+
+    // return () => clearInterval(interval);
+
+
 
     // update order status 
-    const updateStatus = async (orderId, status) => {
-        try {
-            await axios.put(
-                `http://localhost:8000/api/order/status/${orderId}`,
-                { status },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
+    // const updateStatus = async (orderId, status) => {
+    //     try {
+    //         await axios.put(
+    //             `http://localhost:8000/api/order/status/${orderId}`,
+    //             { status },
+    //             {
+    //                 headers: {
+    //                     Authorization: `Bearer ${token}`,
+    //                 },
+    //             }
+    //         );
 
-            // refresh data after update
-            fetchPendingOrders();
-            fetchOrderCount();
+    //         // refresh data after update
+    //         // fetchPendingOrders();
+    //         fetchOrderCount();
 
-        } catch (err) {
-            console.log(err.response?.data || err.message);
-        }
-    };
+    //     } catch (err) {
+    //         console.log(err.response?.data || err.message);
+    //     }
+    // };
 
     return (
         <div className={styles.adminDashboard}>

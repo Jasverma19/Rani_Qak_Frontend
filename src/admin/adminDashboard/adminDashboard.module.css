@@ -18,6 +18,7 @@
 .adminDashboard {
   display: flex;
   background: linear-gradient(135deg, #fffaf0 0%, #fff0e6 100%);
+  min-height: 100vh;
   max-height: 100vh;
   color: var(--text-primary);
   position: relative;
