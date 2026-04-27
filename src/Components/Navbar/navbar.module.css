@@ -21,10 +21,6 @@
   transition: all 0.3s ease;
 }
 
-.navbar:hover {
-  box-shadow: 0 6px 25px rgba(225, 29, 72, 0.12);
-}
-
 .logo {
   width: 145px;
   max-width: 100%;
