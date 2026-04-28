@@ -31,47 +31,47 @@ const AdminDashboard = ({ setToken, setUser }) => {
 
     // ---------------- USERS ----------------
     const fetchUserCount = async () => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/user/count");
-            setUserCount(res.data.count);
-        } catch (err) {
-            console.log(err);
-        }
+        const res = await axios.get("http://localhost:8000/api/user/count");
+        setUserCount(res.data.count);
+        // try {
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     // ---------------- CATEGORY ----------------
     const fetchCategoryCount = async () => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/category/all");
-            setCategoryCount(res.data.count);
-        } catch (err) {
-            console.log(err);
-        }
+        const res = await axios.get("http://localhost:8000/api/category/all");
+        setCategoryCount(res.data.count);
+        // try {
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     // ---------------- ORDERS ----------------
     const fetchOrderCount = async () => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/order/all", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+        const res = await axios.get("http://localhost:8000/api/order/all", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
 
-            setOrderCount(res.data.count || 0);
-        } catch (err) {
-            console.log(err);
-        }
+        setOrderCount(res.data.count || 0);
+        // try {
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     // ---------------- PRODUCTS ----------------
     const fetchProductCount = async () => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/food/all");
-            setProductCount(res.data.foods?.length || 0);
-        } catch (err) {
-            console.log(err);
-        }
+        const res = await axios.get("http://localhost:8000/api/food/all");
+        setProductCount(res.data.foods?.length || 0);
+        // try {
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     // ---------------- PENDING ORDERS ONLY ----------------
