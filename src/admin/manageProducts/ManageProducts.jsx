@@ -47,6 +47,13 @@ const ManageProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isDuplicate = foods.some((food) => food.name.trim().toLowerCase() === name.trim().toLowerCase() && food._id !== editId);
+
+    if (isDuplicate) {
+      toast.error("Food already existed! 🍔");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);

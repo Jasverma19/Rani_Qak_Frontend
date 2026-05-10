@@ -9,6 +9,7 @@ const AdminDashboard = ({ setToken, setUser }) => {
     const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -168,7 +169,7 @@ const AdminDashboard = ({ setToken, setUser }) => {
                         <h1>Admin Dashboard</h1>
 
                         <div className={styles.adminInfo}>
-                            Welcome 👩🏼‍💼
+                            Welcome, {user.name || "Admin"} 👩🏼‍💼
                             <button onClick={handleLogout}>Logout</button>
                         </div>
                     </div>

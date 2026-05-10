@@ -1,14 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
 
 .navbar {
-  --ink: #1f2937;
-  --muted: #64748b;
-  --accent: #e11d48;
   --accent-light: #f43f5e;
 
   font-family: "Times New Roman", Times, serif;
-  height: 120px;
-  padding: 0 6%;
+  height: 100px;
+  padding: 0 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,9 +39,9 @@
 }
 
 .navMenu a {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
-  color: var(--muted);
+  color: black;
   text-decoration: none;
   position: relative;
   padding: 8px 4px;
@@ -53,7 +50,7 @@
 
 .navMenu a:hover,
 .navMenu a.active {
-  color: var(--accent);
+  color: #e11d48;
   transform: scale(1.08);
 }
 
@@ -71,21 +68,33 @@
 .iconGroup {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 15px;
   gap: 25px;
 }
 
 .cartIcon {
   position: relative;
-  font-size: 36px;
-  color: var(--ink);
+  font-size: 40px;
+  color: black;
   cursor: pointer;
   transition: all 1s ease;
 }
 
 .cartIcon:hover {
-  color: var(--accent);
+  color: #e11d48;
   transform: scale(1.15);
+}
+
+.cartDot {
+  position: absolute;
+  top: 3px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: #e11d48;
+  border-radius: 50%;
+  border: 1px solid rgb(249, 248, 248);
 }
 
 @keyframes ping {
@@ -97,13 +106,14 @@
 }
 
 .profileLink {
-  font-size: 36px;
+  font-size: 44px;
+  padding-top: 5px;
   transition: all 1s ease;
 }
 
 .profileLink:hover {
   transform: scale(1.2);
-  color: var(--accent);
+  color: #e11d48;
 }
 
 .divider {
@@ -138,14 +148,14 @@
 .menuIcon {
   display: none;
   font-size: 1.7rem;
-  color: var(--ink);
+  color: black;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .menuIcon:hover {
   transform: rotate(90deg);
-  color: var(--accent);
+  color: #e11d48;
 }
 
 @media (max-width: 750px) {

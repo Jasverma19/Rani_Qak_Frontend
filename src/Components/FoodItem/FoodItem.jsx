@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios';
 import styles from './FoodItem.module.css';
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { assets } from '../../assets/assets';
+import { StoreContext } from '../../context/StoreContext';
 
 const FoodItem = ({ _id, name, price, image, description, setShowLogin }) => {
 
-  const [quantity, setQuantity] = useState(0);
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const quantity = cartItems[_id] || 0;
+
   const token = localStorage.getItem("token");
 
   // ➕ ADD
@@ -30,7 +33,7 @@ const FoodItem = ({ _id, name, price, image, description, setShowLogin }) => {
         }
       );
 
-      setQuantity(prev => prev + 1);
+      addToCart(_id);
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +52,7 @@ const FoodItem = ({ _id, name, price, image, description, setShowLogin }) => {
         }
       );
 
-      setQuantity(prev => (prev > 0 ? prev - 1 : 0));
+      removeFromCart(_id);
     } catch (err) {
       console.log(err);
     }

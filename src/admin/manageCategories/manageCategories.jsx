@@ -50,6 +50,18 @@ const ManageCategories = ({ refreshCount }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.name.trim()) {
+      toast.error("Category name is required ❌");
+      return;
+    }
+
+    const isDuplicate = categories.some((cat) => cat.name.toLowerCase() === form.name.toLowerCase().trim());
+
+    if (isDuplicate) {
+      toast.error("Category already exists ❌");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", form.name);
     formData.append("image", form.image);
@@ -80,6 +92,23 @@ const ManageCategories = ({ refreshCount }) => {
   };
 
   const handleUpdate = async () => {
+
+    if (!form.name.trim()) {
+      toast.error("Category name cannot be empty ❌");
+      return;
+    }
+
+    const isDuplicate = categories.some(
+      (cat) =>
+        cat.name.toLowerCase().trim() === form.name.toLowerCase().trim() &&
+        cat._id !== selectedId
+    );
+
+    if (isDuplicate) {
+      toast.error("Category already exists ❌");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", form.name);
     if (form.image) formData.append("image", form.image);

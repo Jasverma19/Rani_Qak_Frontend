@@ -8,6 +8,8 @@ const StoreContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
 
+    const token = localStorage.getItem("token");
+
     // ---------------- FETCH FOODS ----------------
     useEffect(() => {
         const fetchFoods = async () => {
@@ -20,6 +22,27 @@ const StoreContextProvider = (props) => {
         };
         fetchFoods();
     }, []);
+
+    // ---------------- Fetch Cart from Server ------------------
+    useEffect(() => {
+        const fetchCart = async () => {
+            if (!token) return;
+            try {
+                const res = await axios.get("http://localhost:8000/api/cart", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                });
+                if (res.data.cartItems) {
+                    setCartItems(res.data.cartItems);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchCart();
+    }, [token]);
+
 
     // ---------------- CART LOGIC ----------------
     const addToCart = (itemId) => {
@@ -73,8 +96,6 @@ const StoreContextProvider = (props) => {
         addToCart,
         removeFromCart,
         getTotalCartAmount,
-
-        // CART COUNT (FIXED)
         cartCount,
     };
 

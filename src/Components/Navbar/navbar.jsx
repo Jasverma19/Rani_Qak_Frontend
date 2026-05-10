@@ -1,9 +1,9 @@
 // Navbar
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './navbar.module.css';
 import { FiSearch, FiMenu } from "react-icons/fi";
-import { FaBasketShopping } from "react-icons/fa6";
+import { BsFillBasketFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,8 +16,8 @@ const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const { cartItems } = useContext(StoreContext);
-  const cartCount = Object.values(cartItems || {}).reduce((total, qty) => total + qty, 0);
+  const { cartCount } = useContext(StoreContext);
+  // const cartCount = Object.values(cartItems || {}).reduce((total, qty) => total + qty, 0);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -42,8 +42,9 @@ const Navbar = () => {
 
       <div className={styles.navRight}>
         <div className={styles.iconGroup}>
+
           <div className={styles.cartIcon}>
-            <Link to='/cart'> <FaBasketShopping /> </Link>
+            <Link to='/cart'> <BsFillBasketFill /> {cartCount > 0 && <span className={styles.cartDot}></span>} </Link>
           </div>
           <Link to="/profile" className={styles.profileLink}><CgProfile /></Link>
         </div>
