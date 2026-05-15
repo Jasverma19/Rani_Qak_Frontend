@@ -21,13 +21,14 @@ a {
 
 /* Global Container */
 .App {
-  background-color: #fffaf5;
+  background: #fffaf0bb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .app {
+  background: #fdf6ee;
   width: 90%;
   margin: 0 auto;
   flex: 1;
